@@ -1,55 +1,149 @@
-# React + TypeScript + Vite
+# **📌 MCQ Exam App**
+🚀 **MCQ Exam App** is a modern, **Vite + React + TypeScript**-powered online multiple-choice question (MCQ) testing application. It allows users to **dynamically upload JSON-based questions**, take **timed** exams, and view **detailed results**.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## **🌟 Features**
+✅ **Dynamic JSON-based MCQ exams** – Easily generate exams using ChatGPT-generated JSON.  
+✅ **Time-based exam mode** – Supports `"Xm Ys"` format (e.g., `"1m 30s"`, `"45s"`, `"5m 0s"`).  
+✅ **Intelligent scoring system** – Tracks correct/incorrect answers and calculates pass/fail.  
+✅ **Color-coded answers** – **Green** for correct, **Red** for incorrect, with explanations.  
+✅ **"Prompt" button** – Generates structured JSON format for easy ChatGPT integration.  
+✅ **Modern UI** – Built with **TailwindCSS** and supports **lightweight animations**.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## **📂 Project Structure**
+```
+mcq-exam-app/
+│── src/
+│   ├── components/            
+│   │   ├── TextInput.tsx      # JSON Input Component
+│   │   ├── Exam.tsx           # Exam UI & Logic
+│   │   ├── Question.tsx       # Single Question Component
+│   │   ├── Timer.tsx          # Countdown Timer Component
+│   │   ├── Result.tsx         # Result & Review Screen
+│   ├── pages/
+│   │   ├── Home.tsx           # Landing Page (JSON Input)
+│   │   ├── ExamPage.tsx       # Exam UI
+│   │   ├── ResultPage.tsx     # Results UI
+│   ├── hooks/
+│   │   ├── useExam.ts         # Exam State Management
+│   │   ├── useTimer.ts        # Timer Logic
+│   ├── App.tsx                # Main Entry File (Routes)
+│   ├── main.tsx               # App Mounting Point
+│── public/                    # Static assets (e.g., favicon)
+│── tailwind.config.js          # Tailwind Configuration
+│── index.css                   # Global Styles
+│── package.json                # Dependencies
+│── vite.config.js              # Vite Configuration
+```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
+## **🔧 Installation & Setup**
+### **1️⃣ Clone the Repository**
+```bash
+git clone https://github.com/YOUR_GITHUB_USERNAME/mcq-exam-app.git
+cd mcq-exam-app
+```
+
+### **2️⃣ Install Dependencies**
+```bash
+npm install
+```
+
+### **3️⃣ Start the Development Server**
+```bash
+npm run dev
+```
+🖥️ The app will now be available at **`http://localhost:5173`**.
+
+### **4️⃣ Build for Production**
+```bash
+npm run build
+```
+This will generate optimized files in the `dist/` folder.
+
+### **5️⃣ Deploy the App**
+You can **deploy the app easily** to platforms like:
+- **Vercel** → `vercel deploy`
+- **Netlify** → Drag & drop `dist/` folder to Netlify
+
+---
+
+## **📜 How to Use**
+### **📌 Uploading Exam Questions**
+1️⃣ Click the **"Prompt"** button to copy the JSON format.  
+2️⃣ Modify it by **replacing `"YOUR_TOPIC_HERE"`** with your desired exam subject.  
+3️⃣ Generate structured JSON **via ChatGPT**.  
+4️⃣ Paste the JSON into the **text area on the Home page**.  
+5️⃣ Click **"Start Exam"** to begin the test.  
+
+---
+
+## **📜 JSON Format**
+### **✅ Example JSON for Exam**
+```json
+{
+  "exam_title": "General Knowledge Quiz",
+  "timePerQuestion": "1m 30s",
+  "questions": [
+    {
+      "question": "What is the capital of France?",
+      "options": ["Berlin", "Madrid", "Paris", "Rome"],
+      "answer": "Paris",
+      "explanation": "Paris is the capital city of France, known for the Eiffel Tower."
     },
-  },
-})
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Earth", "Venus", "Mars", "Jupiter"],
+      "answer": "Mars",
+      "explanation": "Mars is often called the Red Planet due to its reddish appearance."
+    }
+  ]
+}
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## **🛠 Tech Stack**
+- **Frontend:** React + TypeScript
+- **Styling:** TailwindCSS
+- **Build Tool:** Vite
+- **State Management:** React Hooks
+- **Deployment:** Vercel
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-"# MCQ" 
+## **📝 Future Improvements**
+✅ **Dark mode support**  
+✅ **Animations for transitions**  
+✅ **More question formats (True/False, Fill in the Blanks)**  
+
+---
+
+## **🤝 Contributing**
+💡 Want to improve this project? Feel free to **fork** the repo and submit a **pull request**!
+
+1️⃣ Fork the project  
+2️⃣ Create a feature branch → `git checkout -b feature-name`  
+3️⃣ Commit your changes → `git commit -m "Added new feature"`  
+4️⃣ Push to GitHub → `git push origin feature-name`  
+5️⃣ Open a **Pull Request** 🚀  
+
+---
+
+## **📜 License**
+This project is **open-source** under the **MIT License**.
+
+---
+
+## **💬 Support**
+For any issues, feel free to:
+- **Raise an issue** [here](https://github.com/4kshi7/MCQ/issues)
+
+---
+
+### **🌟 Like This Project? Give it a Star ⭐ on GitHub!**
+🚀 **Happy Coding!** 🚀
+
+---
