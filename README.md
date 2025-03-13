@@ -44,7 +44,7 @@ mcq-exam-app/
 ## **🔧 Installation & Setup**
 ### **1️⃣ Clone the Repository**
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/mcq-exam-app.git
+git clone https://github.com/4kshi7/MCQ.git
 cd mcq-exam-app
 ```
 
